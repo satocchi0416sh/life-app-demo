@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/life-app-demo/static/css/main.d207dd40.chunk.css",
-    "main.js": "/life-app-demo/static/js/main.a1746894.chunk.js",
-    "main.js.map": "/life-app-demo/static/js/main.a1746894.chunk.js.map",
+    "main.js": "/life-app-demo/static/js/main.2b952770.chunk.js",
+    "main.js.map": "/life-app-demo/static/js/main.2b952770.chunk.js.map",
     "runtime-main.js": "/life-app-demo/static/js/runtime-main.3ad24e99.js",
     "runtime-main.js.map": "/life-app-demo/static/js/runtime-main.3ad24e99.js.map",
     "static/js/2.ac51d059.chunk.js": "/life-app-demo/static/js/2.ac51d059.chunk.js",
@@ -28,6 +28,6 @@
     "static/js/runtime-main.3ad24e99.js",
     "static/js/2.ac51d059.chunk.js",
     "static/css/main.d207dd40.chunk.css",
-    "static/js/main.a1746894.chunk.js"
+    "static/js/main.2b952770.chunk.js"
   ]
 }
