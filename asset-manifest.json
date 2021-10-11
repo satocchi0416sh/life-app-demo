@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/life-app-demo/static/css/main.d207dd40.chunk.css",
-    "main.js": "/life-app-demo/static/js/main.2b952770.chunk.js",
-    "main.js.map": "/life-app-demo/static/js/main.2b952770.chunk.js.map",
-    "runtime-main.js": "/life-app-demo/static/js/runtime-main.3ad24e99.js",
-    "runtime-main.js.map": "/life-app-demo/static/js/runtime-main.3ad24e99.js.map",
-    "static/js/2.ac51d059.chunk.js": "/life-app-demo/static/js/2.ac51d059.chunk.js",
-    "static/js/2.ac51d059.chunk.js.map": "/life-app-demo/static/js/2.ac51d059.chunk.js.map",
-    "static/js/3.e8ea3cf7.chunk.js": "/life-app-demo/static/js/3.e8ea3cf7.chunk.js",
-    "static/js/3.e8ea3cf7.chunk.js.map": "/life-app-demo/static/js/3.e8ea3cf7.chunk.js.map",
+    "main.css": "/life-app-demo/static/css/main.21118c35.chunk.css",
+    "main.js": "/life-app-demo/static/js/main.b79cdea4.chunk.js",
+    "main.js.map": "/life-app-demo/static/js/main.b79cdea4.chunk.js.map",
+    "runtime-main.js": "/life-app-demo/static/js/runtime-main.70b3d486.js",
+    "runtime-main.js.map": "/life-app-demo/static/js/runtime-main.70b3d486.js.map",
+    "static/js/2.105fa46c.chunk.js": "/life-app-demo/static/js/2.105fa46c.chunk.js",
+    "static/js/2.105fa46c.chunk.js.map": "/life-app-demo/static/js/2.105fa46c.chunk.js.map",
+    "static/js/3.3220e6f5.chunk.js": "/life-app-demo/static/js/3.3220e6f5.chunk.js",
+    "static/js/3.3220e6f5.chunk.js.map": "/life-app-demo/static/js/3.3220e6f5.chunk.js.map",
     "static/js/4.7d453c10.chunk.js": "/life-app-demo/static/js/4.7d453c10.chunk.js",
     "static/js/4.7d453c10.chunk.js.map": "/life-app-demo/static/js/4.7d453c10.chunk.js.map",
     "static/js/5.269cc26a.chunk.js": "/life-app-demo/static/js/5.269cc26a.chunk.js",
@@ -16,18 +16,18 @@
     "static/js/6.70b8e957.chunk.js": "/life-app-demo/static/js/6.70b8e957.chunk.js",
     "static/js/6.70b8e957.chunk.js.map": "/life-app-demo/static/js/6.70b8e957.chunk.js.map",
     "index.html": "/life-app-demo/index.html",
-    "static/css/main.d207dd40.chunk.css.map": "/life-app-demo/static/css/main.d207dd40.chunk.css.map",
-    "static/js/2.ac51d059.chunk.js.LICENSE.txt": "/life-app-demo/static/js/2.ac51d059.chunk.js.LICENSE.txt",
-    "static/js/3.e8ea3cf7.chunk.js.LICENSE.txt": "/life-app-demo/static/js/3.e8ea3cf7.chunk.js.LICENSE.txt",
+    "static/css/main.21118c35.chunk.css.map": "/life-app-demo/static/css/main.21118c35.chunk.css.map",
+    "static/js/2.105fa46c.chunk.js.LICENSE.txt": "/life-app-demo/static/js/2.105fa46c.chunk.js.LICENSE.txt",
+    "static/js/3.3220e6f5.chunk.js.LICENSE.txt": "/life-app-demo/static/js/3.3220e6f5.chunk.js.LICENSE.txt",
     "static/js/4.7d453c10.chunk.js.LICENSE.txt": "/life-app-demo/static/js/4.7d453c10.chunk.js.LICENSE.txt",
     "static/js/5.269cc26a.chunk.js.LICENSE.txt": "/life-app-demo/static/js/5.269cc26a.chunk.js.LICENSE.txt",
     "static/media/76888-color-data-analysis.540e95fe.gif": "/life-app-demo/static/media/76888-color-data-analysis.540e95fe.gif",
     "static/media/app-bg@2x.39bf29a7.jpg": "/life-app-demo/static/media/app-bg@2x.39bf29a7.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.3ad24e99.js",
-    "static/js/2.ac51d059.chunk.js",
-    "static/css/main.d207dd40.chunk.css",
-    "static/js/main.2b952770.chunk.js"
+    "static/js/runtime-main.70b3d486.js",
+    "static/js/2.105fa46c.chunk.js",
+    "static/css/main.21118c35.chunk.css",
+    "static/js/main.b79cdea4.chunk.js"
   ]
 }
