@@ -1,0 +1,56 @@
+/*まずはお決まりのボックスサイズ算出をborer-boxに */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%; /*rem算出をしやすくするために*/
+}
+
+.bg_img {
+  height: 100%;
+}
+
+.pg-ttl {
+  color: #494949;
+  margin-top: 18vh;
+  text-align: center;
+  font-size: 2.4rem;
+}
+
+.pg-txt {
+  color: rgb(241, 241, 241);
+  margin-top: 50vh;
+  text-align: center;
+  font-size: 2.4rem;
+}
+
+.exp-ttl {
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 5rem;
+  color: rgb(241, 241, 241);
+}
+
+.exp-txt {
+  color: rgb(241, 241, 241);
+  font-size: 1.6rem;
+  width: 80vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lets-go {
+  font-size: 3.4rem;
+  color: rgb(241, 241, 241);
+}
+
+.title {
+  font-size: 2.4rem;
+  margin-top: 2rem;
+}
