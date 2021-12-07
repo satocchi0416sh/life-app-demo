@@ -16,33 +16,40 @@ html {
   height: 100%;
 }
 
+.txt-wrapper {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.253);
+  height: 10rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50vh;
+}
+
 .pg-ttl {
-  color: #494949;
-  margin-top: 18vh;
+  color: #f5f5f5;
   text-align: center;
   font-size: 2.4rem;
 }
 
 .pg-txt {
   color: rgb(241, 241, 241);
-  margin-top: 50vh;
   text-align: center;
   font-size: 2.4rem;
+  background: linear-gradient(transparent 60%, #ffa500 0%);
 }
 
-.exp-ttl {
-  font-size: 2.4rem;
-  text-align: center;
-  margin: 5rem;
-  color: rgb(241, 241, 241);
+.exp {
+  margin-top: 100px;
 }
 
-.exp-txt {
-  color: rgb(241, 241, 241);
+.exp p {
   font-size: 1.6rem;
-  width: 80vw;
-  margin: 0 auto;
-  text-align: center;
+  padding: 0 50px;
+}
+
+.disclaimer {
+  font-size: 1.6rem;
+  padding: 0 50px;
 }
 
 .lets-go {
@@ -53,4 +60,52 @@ html {
 .title {
   font-size: 2.4rem;
   margin-top: 2rem;
+}
+
+.balloon5 {
+  width: 100%;
+  margin: 1.5em 0;
+  overflow: hidden;
+}
+
+.balloon5 .faceicon {
+  float: left;
+  margin-right: -90px;
+  width: 80px;
+}
+
+.balloon5 .faceicon img {
+  width: 100%;
+  height: auto;
+  border: solid 3px #d7ebfe;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.balloon5 .chatting {
+  width: 100%;
+}
+
+.says {
+  display: inline-block;
+  position: relative;
+  margin: 5px 0 0 105px;
+  padding: 17px 13px;
+  border-radius: 12px;
+  background: #d7ebfe;
+}
+
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  left: -24px;
+  border: 12px solid transparent;
+  border-right: 12px solid #d7ebfe;
+}
+
+.says p {
+  margin: 0;
+  padding: 0;
 }

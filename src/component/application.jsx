@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Caluculation1 from "./caluculation1"
 import InputHuyo from './inputHuyo';
 import InputPay from "./inputPay"
@@ -12,6 +12,10 @@ import Huyo from "./huyo";
 import Pay from "./pay";
 import Income from "./income"
 import "./infoballoon.css"
+import { Button, Grid } from "@material-ui/core";
+import { ContactMail, Info } from "@mui/icons-material";
+import { Stack } from "@mui/material";
+import { Box } from "@mui/system";
 
 function ApplicationHome() {
     /*変数 */
@@ -520,7 +524,7 @@ function ApplicationHome() {
         }))
     }
 
-    const pages = ['input1', 'caluculation1', 'transition', 'transition2']
+    const pages = ['input1', 'caluculation1', 'transition', 'transition2', 'contact']
     /*ページの分岐 */
     let page;
     if (currentPage === "input1") {//<=入力１の画面
@@ -725,19 +729,40 @@ function ApplicationHome() {
     } else if (currentPage === "transition") {//<=推移画面
         page = <Transition name={name} info={info} wifeInfo={wifeInfo} saving={saving} huyoList={huyoList}
             payList={payList} incomeList={incomeList} dicisionInfo={dicisionInfo} loading={loading} quitLoad={quitLoad} />
-    } else {
+    } else if (currentPage === "transition2") {
         page = <Transition2 name={name} info={info} wifeInfo={wifeInfo} saving={saving} huyoList={huyoList}
             payList={payList} incomeList={incomeList} dicisionInfo={dicisionInfo} loading={loading} quitLoad={quitLoad} />
+    } else if (currentPage === "contact") {
+        page = <div className="links" style={{ fontSize: "1.5rem", marginTop: "100px", marginLeft: "100px", marginRight: "100px", textAlign: "left" }}>
+            <div className="balloon2">
+                <p><i class="fas fa-gift" style={{ fontSize: "2.3rem", marginRight: "10px" }}></i>amazonギフト券プレゼント中</p>
+            </div>
+            <div className="join-seminor"><p>将来の備えへ【０から始める資産運用セミナー】に参加してみる</p></div>
+            <Box sx={{ mt: 2, fontSize: 20, '& a': { fontSize: 12, py: 3 } }}>
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <Button href="https://prosperte.info/" target="_blank" size="large" fullWidth color="secondary" variant="outlined" startIcon={<Info />}>０から始める資産運用オンラインセミナーの詳細</Button>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Button href="https://prosperte.info/form/" target="_blank" size="large" fullWidth color="secondary" variant="contained" startIcon={<ContactMail />}>セミナーの参加申し込み</Button>
+                    </Grid>
+                </Grid>
+            </Box>
+        </div>
     }
 
     /*currentPageのステートによって何の画面が表示されるか決まる */
 
     // const pages = ['input1', 'caluculation1', 'transition', 'transition2']
 
+    useEffect(() => {
+        console.log(currentPage);
+    }, [currentPage])
+
 
     return (
         <div className="all-wrapper">
-            <h2 className="title">ライフシミュレーション</h2>
+            <h2 className="title">将来シミュレーター</h2>
             {page}
             <div className="button-wrapper">
 
@@ -750,7 +775,7 @@ function ApplicationHome() {
                     :
                     null
                 }
-                {currentPage !== 'transition2'
+                {currentPage !== 'contact'
                     ?
                     <>
                         {currentPage !== 'transition'
