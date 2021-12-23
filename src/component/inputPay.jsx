@@ -80,7 +80,7 @@ const InputPay = memo((props) => {
                         {type === "living" || type === "living65" ?
                             null
                             :
-                            <>  
+                            <>
                                 <div class="cp_ipselect">
                                     <select class="cp_sl06" required onChange={(e) => { setType2(e.target.value) }}>
                                         <option value="" hidden disabled selected></option>
@@ -93,13 +93,13 @@ const InputPay = memo((props) => {
                                     <span class="cp_sl06_selectbar"></span>
                                     <label class="cp_sl06_selectlabel">期間</label>
                                 </div>
-                                <br/>
+                                <br />
                                 {type2 !== "every" ?
                                     <>
                                         <FormInput label="年齢" type="number" value={count} onChange={(e) => { setCount(e.target.value) }} />
                                         <br />
                                     </>
-                                : null}
+                                    : null}
                             </>
                         }
 
@@ -111,7 +111,7 @@ const InputPay = memo((props) => {
 
                 </div>
                 : <label className="button-label">
-                    <button className="btn btn-border" onClick={() => { setOpen(true) }}>追加</button>
+                    <button className="btn btn-border" onClick={() => { setOpen(true) }}>さらに詳しく支出を設定する</button>
                 </label>}
 
         </>

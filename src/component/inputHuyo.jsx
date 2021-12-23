@@ -102,7 +102,7 @@ const InputHuyo = memo((props) => {
                 </div>
                 :
                 <label className="button-label">
-                    <button className="btn btn-border" onClick={() => { setOpen(true) }}>追加</button>
+                    <button className="btn btn-border" onClick={() => { setOpen(true) }}>扶養家族の入力・追加</button>
                 </label>}
         </div>
     )

@@ -529,13 +529,13 @@ function ApplicationHome() {
     let page;
     if (currentPage === "input1") {//<=入力１の画面
         page = <div className="contents">
-            <FormInput label="お名前" type="text" value={name} onChange={(e) => { setName(e.target.value) }} />
+            <FormInput label="お名前（必須）" type="text" value={name} onChange={(e) => { setName(e.target.value) }} />
             <br />
-            <FormInput label="メールアドレス" type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} />
+            <FormInput label="メールアドレス（必須）" type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} />
             <br />
-            <FormInput label="年齢（歳）" type="number" value={age} onChange={(e) => { setAge(e.target.value) }} />
+            <FormInput label="年齢（歳）（必須）" type="number" value={age} onChange={(e) => { setAge(e.target.value) }} />
             <br />
-            <FormInput label="税込年収（万円）" type="number" value={taxIncome} onChange={(e) => { setTaxIncome(e.target.value) }} />
+            <FormInput label="税込年収（万円）（必須）" type="number" value={taxIncome} onChange={(e) => { setTaxIncome(e.target.value) }} />
             <br />
             {more ?
                 <>
@@ -619,9 +619,9 @@ function ApplicationHome() {
                 </div>
             }
             <br />
-            <FormInput label="月額の見込年金額（万円）" type="number" value={pension} onChange={(e) => { setPension(e.target.value) }} />
+            <FormInput label="月額の見込年金額（万円）（必須）" type="number" value={pension} onChange={(e) => { setPension(e.target.value) }} />
             <br />
-            <FormInput label="現在貯蓄額（万円）" type="number" value={saving} onChange={(e) => { setSaving(e.target.value) }} />
+            <FormInput label="現在貯蓄額（万円）（必須）" type="number" value={saving} onChange={(e) => { setSaving(e.target.value) }} />
             <br />
             <br />
             <br />
@@ -707,7 +707,7 @@ function ApplicationHome() {
                 </div>
             }
             <br /><br />
-            <h2>給与以外の収入</h2>
+            <h2>退職金やその他の収入</h2>
             <InputIncome addIncomeList={addIncomeList} />
             {incomeList.map((value, index) => {
                 if (value.id !== 0) {
