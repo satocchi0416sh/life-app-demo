@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import ApplicationHome from './component/application';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import bg from './assets/app-bg.jpeg'
-import logo from './assets/future-simu-logo.jpeg'
 import MediaQuery from 'react-responsive';
 
 function App() {
@@ -41,7 +40,7 @@ function App() {
 
               <div style={{ marginTop: '8rem', textAlign: "center" }}>
                 <h1 className="logo">〜将来シミュレーター〜</h1>
-                <p style={{ fontSize: "1.6rem" }}>将来の貯蓄額を計算、推移をグラフや表で知ることができます。</p>
+                <p style={{ fontSize: "1.6rem", padding: "30px" }}>将来の貯蓄額を計算、推移をグラフや表で知ることができます。</p>
               </div>
               <div className="txt-wrapper">
                 <div className="pg-txt"><i class="fas fa-hand-point-down"></i> スクロール</div>
@@ -142,7 +141,7 @@ function App() {
           <div className="hero-section">
             <img src={bg} style={{ marginLeft: 180 }} alt="ライフシミュレーション" />
             <h1 className="logo">〜将来シミュレーター〜</h1>
-            <p style={{ fontSize: "1.6rem" }}>将来の貯蓄額を計算、推移をグラフや表で知ることができます。</p>
+            <p style={{ fontSize: "1.6rem", padding: "0 40px 40px 40px", }}>将来の貯蓄額を計算、推移をグラフや表で知ることができます。</p>
           </div>
           <div className="p-contents">
             <div className="description">
@@ -171,7 +170,7 @@ function App() {
               <br />
               <p style={{ fontSize: "2rem" }}>将来の貯蓄額をこのツールを使って計算ができます。</p>
 
-              <div style={{ backgroundColor: "#d7ebfe", padding: "1rem 0" }}>
+              <div style={{ backgroundColor: "#d7ebfe", padding: "1rem" }}>
                 <p>自分の将来にはお金が幾ら必要になるのかを知っているのと知らないのとでは、資産運用の方法も大違い？</p>
 
                 <p>年収や支出、現在の貯蓄などから、自分の貯蓄額がどのように推移してくのかをわかりやすいグラフと表で、資産推移を見ていく事ができます。</p>
