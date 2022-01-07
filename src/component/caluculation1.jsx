@@ -57,7 +57,7 @@ const Caluculation1 = (props) => {
             <br />
             <label><span>①</span> 給与所得 : {info[0].kyuyoIncome}万円</label>
             <br />
-    
+
 
             <label className="t-label"><span>②</span> 所得税控除額（概算）</label>
             <table className="t">
@@ -147,9 +147,9 @@ const Caluculation1 = (props) => {
             <br />
             <label>住民税課税所得金額 ⇒ {kazeiIncomeJ1}万円</label>
             <label>住民税（年額） ⇒ {jTax1}万円</label>
-            <label>月額の住民税 ⇒ {Math.round((jTax1/12)*10)/10}万円</label>
+            <label>月額の住民税 ⇒ {Math.round((jTax1 / 12) * 10) / 10}万円</label>
             <br />
-            <p><span>④</span> 所得税・住民税合計 : {sTax1 + jTax1}万円</p>
+            <p><span>④</span> 所得税・住民税合計 : {Math.round((sTax1 + jTax1) * 10) / 10}万円</p>
             <br />
         </>
     )
