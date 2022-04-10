@@ -102,8 +102,8 @@ function Transition(props) {
         let i = 0
         let outCome = sumArray(payList, (Number)(info.age) + i)
         let inCome =
-            Number(dicisionInfo(info.taxIncome, info.taxIncome60, info.rate, info.maxAge1 ,info.afterIncome, info.pension, huyoList, 0, info.age, i)[0].tedori) +
-            Number(dicisionInfo(wifeInfo.taxIncome, wifeInfo.taxIncome60, wifeInfo.rate, wifeInfo.maxAge1,  wifeInfo.afterIncome, wifeInfo.pension, huyoList, 1, wifeInfo.age, i)[0].tedori) +
+            Number(dicisionInfo(info.taxIncome, info.taxIncome60, info.rate, info.maxAge1, info.afterIncome, info.pension, huyoList, 0, info.age, i)[0].tedori) +
+            Number(dicisionInfo(wifeInfo.taxIncome, wifeInfo.taxIncome60, wifeInfo.rate, wifeInfo.maxAge1, wifeInfo.afterIncome, wifeInfo.pension, huyoList, 1, wifeInfo.age, i)[0].tedori) +
             sumArray(incomeList, (Number)(info.age) + i)
         let Result = inCome - outCome
 
@@ -119,8 +119,8 @@ function Transition(props) {
                 year: i + "年",
                 age: Number(info.age) + i + "歳",
                 wage: Number(wifeInfo.age) + i + "歳",
-                self: Math.floor(dicisionInfo(info.taxIncome, info.taxIncome60, info.rate, info.maxAge1,  info.afterIncome, info.pension, huyoList, 0, info.age, i)[0].tedori),
-                wife: Math.floor(dicisionInfo(wifeInfo.taxIncome, wifeInfo.taxIncome60, wifeInfo.rate, wifeInfo.maxAge1,  wifeInfo.afterIncome, wifeInfo.pension, huyoList, 1, wifeInfo.age, i)[0].tedori),
+                self: Math.floor(dicisionInfo(info.taxIncome, info.taxIncome60, info.rate, info.maxAge1, info.afterIncome, info.pension, huyoList, 0, info.age, i)[0].tedori),
+                wife: Math.floor(dicisionInfo(wifeInfo.taxIncome, wifeInfo.taxIncome60, wifeInfo.rate, wifeInfo.maxAge1, wifeInfo.afterIncome, wifeInfo.pension, huyoList, 1, wifeInfo.age, i)[0].tedori),
                 income: Math.floor(inCome),
                 outcome: Math.floor(outCome),
                 expenses: Math.floor(Result),
@@ -134,8 +134,8 @@ function Transition(props) {
             outCome = sumArray(payList, (Number)(info.age) + i)
 
             inCome =
-                Number(dicisionInfo(info.taxIncome, info.taxIncome60, info.rate, info.maxAge1,  info.afterIncome, info.pension, huyoList, 0, info.age, i)[0].tedori) +
-                Number(dicisionInfo(wifeInfo.taxIncome, wifeInfo.taxIncome60, wifeInfo.rate, wifeInfo.maxAge1,  wifeInfo.afterIncome, wifeInfo.pension, huyoList, 1, wifeInfo.age, i)[0].tedori) +
+                Number(dicisionInfo(info.taxIncome, info.taxIncome60, info.rate, info.maxAge1, info.afterIncome, info.pension, huyoList, 0, info.age, i)[0].tedori) +
+                Number(dicisionInfo(wifeInfo.taxIncome, wifeInfo.taxIncome60, wifeInfo.rate, wifeInfo.maxAge1, wifeInfo.afterIncome, wifeInfo.pension, huyoList, 1, wifeInfo.age, i)[0].tedori) +
                 sumArray(incomeList, (Number)(info.age) + i)
 
             Result = inCome - outCome
@@ -166,7 +166,7 @@ function Transition(props) {
                     age: Number(info.age) + i + "歳",
                     wage: Number(wifeInfo.age) + i + "歳",
                     self: Math.floor(dicisionInfo(info.taxIncome, info.taxIncome60, info.rate, info.maxAge1, info.afterIncome, info.pension, huyoList, 0, info.age, i)[0].tedori),
-                    wife: Math.floor(dicisionInfo(wifeInfo.taxIncome, wifeInfo.taxIncome60, wifeInfo.rate, wifeInfo.maxAge1,  wifeInfo.afterIncome, wifeInfo.pension, huyoList, 1, wifeInfo.age, i)[0].tedori),
+                    wife: Math.floor(dicisionInfo(wifeInfo.taxIncome, wifeInfo.taxIncome60, wifeInfo.rate, wifeInfo.maxAge1, wifeInfo.afterIncome, wifeInfo.pension, huyoList, 1, wifeInfo.age, i)[0].tedori),
                     income: Math.floor(inCome),
                     outcome: Math.floor(outCome),
                     expenses: Math.floor(Result),
@@ -211,6 +211,13 @@ function Transition(props) {
         setLastSaving(tableData[tableData.length - 1].saving)
 
     }, [])
+
+    const minusColor = (value) => {
+        if (value >= 0)
+            return "black"
+        else
+            return "red"
+    }
 
 
     return (
@@ -260,7 +267,7 @@ function Transition(props) {
                             { title: '収入合計', field: 'income' },
                             { title: '支出合計', field: 'outcome' },
                             { title: '収支', field: 'expenses' },
-                            { title: '累計貯蓄額', field: 'saving' },
+                            { title: '累計貯蓄額', field: 'saving', render: rowData => <span style={{ color: minusColor(rowData.saving) }}>{rowData.saving}</span> },
                         ]
                         }
 

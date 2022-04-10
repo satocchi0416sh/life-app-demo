@@ -29,7 +29,7 @@ function App() {
               offset={0}
               speed={0.5}
               style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <img className="bg_img" src={bg} alt="ライフシミュレーション" />
+              <img className="bg_img" src={bg} alt="" />
             </ParallaxLayer>
 
             <ParallaxLayer
@@ -43,7 +43,7 @@ function App() {
                 <p style={{ fontSize: "1.6rem", padding: "30px" }}>将来の貯蓄額を計算、推移をグラフや表で知ることができます。</p>
               </div>
               <div className="txt-wrapper">
-                <div className="pg-txt"><i class="fas fa-hand-point-down"></i> スクロール</div>
+                <div style={{ color: "white" }} className="pg-txt"><i class="fas fa-hand-point-down"></i> スクロール</div>
               </div>
             </ParallaxLayer>
 
@@ -139,7 +139,7 @@ function App() {
       <MediaQuery maxWidth={600}>
         <div className="phone-wrapper">
           <div className="hero-section">
-            <img src={bg} style={{ marginLeft: 180 }} alt="ライフシミュレーション" />
+            <img src={bg} alt="" />
             <h1 className="logo">〜将来シミュレーター〜</h1>
             <p style={{ fontSize: "1.6rem", padding: "0 40px 40px 40px", }}>将来の貯蓄額を計算、推移をグラフや表で知ることができます。</p>
           </div>

@@ -14,7 +14,6 @@ import Income from "./income"
 import "./infoballoon.css"
 import { Button, Grid } from "@material-ui/core";
 import { ContactMail, Info } from "@mui/icons-material";
-import { Stack } from "@mui/material";
 import { Box } from "@mui/system";
 
 function ApplicationHome() {
@@ -167,7 +166,7 @@ function ApplicationHome() {
 
             /*扶養控除の合計額の計算 */
             huyoKojoSum2 = kisoKojo + wifeKojo + huyoKojoSum1
-            /*社会保険の計算*/
+            /*社会保険の計算
             if (taxIncome <= 399) {
                 shakaiHoken = 10 + 0
             } else if (taxIncome > 399 && taxIncome <= 499) {
@@ -196,7 +195,10 @@ function ApplicationHome() {
                 shakaiHoken = 10 + 130
             } else {
                 shakaiHoken = 10 + 135
-            }
+            }*/
+
+            shakaiHoken = taxIncome * 0.153
+
 
             /*課税所得の計算 */
             kazeiIncome = kyuyoIncome - shakaiHoken - seimeiHoken - huyoKojoSum2
@@ -524,6 +526,117 @@ function ApplicationHome() {
         }))
     }
 
+    const [nameFilled, setNameFilled] = useState(false);
+    const [mailFilled, setMailFilled] = useState(false);
+    const [ageFilled, setAgeFilled] = useState(false);
+    const [taxincomeFilled, setTaxincomeFilled] = useState(false);
+    const [pentionFilled, setPentionFilled] = useState(false);
+    const [savingFilled, setSavingFilled] = useState(false);
+    const [payFilled, setPayFilled] = useState(false);
+    const [pay65Filled, setPay65Filled] = useState(false);
+
+    useEffect(() => {
+        if (name !== "")
+            setNameFilled(true)
+        else
+            setNameFilled(false)
+    }, [name]);
+    useEffect(() => {
+        if (email !== "")
+            setMailFilled(true)
+        else
+            setMailFilled(false)
+    }, [email]);
+    useEffect(() => {
+        if (age !== "")
+            setAgeFilled(true)
+        else
+            setAgeFilled(false)
+    }, [age]);
+    useEffect(() => {
+        if (taxIncome !== "")
+            setTaxincomeFilled(true)
+        else
+            setTaxincomeFilled(false)
+    }, [taxIncome]);
+    useEffect(() => {
+        if (pension !== "")
+            setPentionFilled(true)
+        else
+            setPentionFilled(false)
+    }, [pension]);
+    useEffect(() => {
+        if (saving !== "")
+            setSavingFilled(true)
+        else
+            setSavingFilled(false)
+    }, [saving]);
+    useEffect(() => {
+        if (pay !== "")
+            setPayFilled(true)
+        else
+            setPayFilled(false)
+    }, [pay]);
+    useEffect(() => {
+        if (pay65 !== "")
+            setPay65Filled(true)
+        else
+            setPay65Filled(false)
+    }, [pay65]);
+
+
+    const ErrorMessages = ({ param }) => {
+        if (param === "name") {
+            if (!nameFilled)
+                return <p style={{ color: "red" }}>※お名前は必須項目です</p>
+            else
+                return null
+        }
+        else if (param === "mail") {
+            if (!mailFilled)
+                return <p style={{ color: "red" }}>※メールアドレスは必須項目です</p>
+            else
+                return null
+        }
+        else if (param === "age") {
+            if (!ageFilled)
+                return <p style={{ color: "red" }}>※年齢は必須項目です</p>
+            else
+                return null
+        }
+        else if (param === "taxincome") {
+            if (!taxincomeFilled)
+                return <p style={{ color: "red" }}>※税込年収は必須項目です</p>
+            else
+                return null
+        }
+        else if (param === "pension") {
+            if (!pentionFilled)
+                return <p style={{ color: "red" }}>※年金は必須項目です</p>
+            else
+                return null
+        }
+        else if (param === "saving") {
+            if (!savingFilled)
+                return <p style={{ color: "red" }}>※現在貯蓄額は必須項目です</p>
+            else
+                return null
+        }
+        else if (param === "pay") {
+            if (!payFilled)
+                return <p style={{ color: "red" }}>※65歳までの月々の生活費は必須項目です</p>
+            else
+                return null
+        }
+        else if (param === "pay65") {
+            if (!pay65Filled)
+                return <p style={{ color: "red" }}>※65歳以降の月々の生活費は必須項目です</p>
+            else
+                return null
+        }
+        else
+            return null
+    }
     const pages = ['input1', 'caluculation1', 'transition', 'transition2', 'contact']
     /*ページの分岐 */
     let page;
@@ -623,13 +736,49 @@ function ApplicationHome() {
             <br />
             <FormInput label="現在貯蓄額（万円）（必須）" type="number" value={saving} onChange={(e) => { setSaving(e.target.value) }} />
             <br />
+            <h2>支出</h2>
+            <FormInput label="65歳までの月々の生活費(万円)(必須)" type="number" value={pay} onChange={(e) => { setPay(e.target.value) }} />
+            <br />
+            <FormInput label="65歳以降の月々の生活費(万円)(必須)" type="number" value={pay65} onChange={(e) => { setPay65(e.target.value) }} />
             <br />
             <br />
-            <br />
+            {payOpen ?
+                <>
+                    <InputPay addPayList={addPayList} />
+                    {payList.map((value, index) => {
+                        if (value.id !== 0) {
+                            if (value.type !== "living" && value.type !== "living65") {
+                                return (
+                                    <Pay key={index} number={value.id} deletePayInput={deletePayInput}
+                                        type={value.type} charge={value.charge} count={value.count} type2={value.type2} editPayInput={editPayInput} />
+                                )
+                            } else {
+                                return (null)
+                            }
+
+                        } else {
+                            return (null)
+                        }
+                    })}
+                </>
+                :
+                <div className="btn-wrapper">
+                    <button className="btn btn--white" onClick={() => { setPayOpen(true) }}>さらに詳しく支出を設定する</button>
+                </div>
+            }
+            <br /><br />
             <h2>配偶者の有無</h2>
             <div className="buttons">
                 <button className="btn btn-border" onClick={() => { setHasWife(1) }}>いる</button>
-                <button className="btn btn-border" onClick={() => { setHasWife(0) }}>いない</button>
+                <button className="btn btn-border" onClick={() => {
+                    setHasWife(0)
+                    setWifeAge(0)
+                    setWifeTaxIncome(0)
+                    setWifeIncome60(0)
+                    setWifeRate(0)
+                    setWifeMaxAge1(0)
+                    setWifeAfterIncome(0)
+                }}>いない</button>
             </div>
             {hasWife === 1 ?
                 <>
@@ -677,36 +826,8 @@ function ApplicationHome() {
             })}
 
             <br /><br />
-            <h2>支出</h2>
-            <FormInput label="65歳までの月々の生活費" type="number" value={pay} onChange={(e) => { setPay(e.target.value) }} />
-            <br />
-            <FormInput label="65歳以降の月々の生活費" type="number" value={pay65} onChange={(e) => { setPay65(e.target.value) }} />
-            <br />
-            {payOpen ?
-                <>
-                    <InputPay addPayList={addPayList} />
-                    {payList.map((value, index) => {
-                        if (value.id !== 0) {
-                            if (value.type !== "living" && value.type !== "living65") {
-                                return (
-                                    <Pay key={index} number={value.id} deletePayInput={deletePayInput}
-                                        type={value.type} charge={value.charge} count={value.count} type2={value.type2} editPayInput={editPayInput} />
-                                )
-                            } else {
-                                return (null)
-                            }
 
-                        } else {
-                            return (null)
-                        }
-                    })}
-                </>
-                :
-                <div className="btn-wrapper">
-                    <button className="btn btn--white" onClick={() => { setPayOpen(true) }}>さらに詳しく支出を設定する</button>
-                </div>
-            }
-            <br /><br />
+
             <h2>退職金やその他の収入</h2>
             <InputIncome addIncomeList={addIncomeList} />
             {incomeList.map((value, index) => {
@@ -719,8 +840,16 @@ function ApplicationHome() {
                     return (null)
                 }
             })}
-
-            <br /><br /><br /><br /><br /><br />
+            <br />
+            <br />
+            <ErrorMessages param="name" />
+            <ErrorMessages param="mail" />
+            <ErrorMessages param="age" />
+            <ErrorMessages param="taxincome" />
+            <ErrorMessages param="pension" />
+            <ErrorMessages param="saving" />
+            <ErrorMessages param="pay" />
+            <ErrorMessages param="pay65" />
         </div>
     } else if (currentPage === "caluculation1") {//<=参考計算例
         page = <div className="contents">
@@ -733,17 +862,17 @@ function ApplicationHome() {
         page = <Transition2 name={name} info={info} wifeInfo={wifeInfo} saving={saving} huyoList={huyoList}
             payList={payList} incomeList={incomeList} dicisionInfo={dicisionInfo} loading={loading} quitLoad={quitLoad} />
     } else if (currentPage === "contact") {
-        page = <div className="links" style={{ fontSize: "1.5rem", marginTop: "100px", marginLeft: "100px", marginRight: "100px", textAlign: "left" }}>
+        page = <div className="links" style={{ fontSize: "1.5rem", marginTop: "100px", marginBottom: "100px", textAlign: "left" }}>
             <div className="balloon2">
                 <p><i class="fas fa-gift" style={{ fontSize: "2.3rem", marginRight: "10px" }}></i>amazonギフト券プレゼント中</p>
             </div>
             <div className="join-seminor"><p>将来の備えへ【０から始める資産運用セミナー】に参加してみる</p></div>
             <Box sx={{ mt: 2, fontSize: 20, '& a': { fontSize: 12, py: 3 } }}>
                 <Grid container spacing={2}>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <Button href="https://prosperte.info/" target="_blank" size="large" fullWidth color="secondary" variant="outlined" startIcon={<Info />}>０から始める資産運用オンラインセミナーの詳細</Button>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <Button href="https://prosperte.info/form/" target="_blank" size="large" fullWidth color="secondary" variant="contained" startIcon={<ContactMail />}>セミナーの参加申し込み</Button>
                     </Grid>
                 </Grid>
@@ -760,10 +889,12 @@ function ApplicationHome() {
     }, [currentPage])
 
 
+
     return (
         <div className="all-wrapper">
             <h2 className="title">将来シミュレーター</h2>
             {page}
+
             <div className="button-wrapper">
 
                 {currentPage !== 'input1'
@@ -782,7 +913,7 @@ function ApplicationHome() {
                             ?
                             <>
                                 {currentPage === "input1"
-                                    ? <button className="btn btn--yellow" onClick={() => { setCurrentPage(pages[pages.indexOf(currentPage) + 1]); getAllInfo(); }}>
+                                    ? <button className="btn btn--yellow" onClick={() => { if (nameFilled && mailFilled && ageFilled && taxincomeFilled && pentionFilled && savingFilled && payFilled && pay65Filled) setCurrentPage(pages[pages.indexOf(currentPage) + 1]); getAllInfo(); }}>
                                         次へ
                                         <i class="fas fa-chevron-right"></i>
                                     </button>
